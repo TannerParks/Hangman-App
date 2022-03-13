@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Hangman</title>
+  </head>
+  <link rel="stylesheet" href="styles.css">
+  <body>
+
+    <div id="mainContent"> 
+
+      <button id="start" onclick="newGame()">New Game</button> 
+
+      <div id="lives"></div>
+
+      <div class="userGuess" id="userGuess">
+          Enter Letter: <input id="letter">
+          <button onclick="userGuess()">Guess</button>
+      </div>
+
+      <!--<div id="word"></div>-->
+
+      
+      <div id="board">
+        <img id="Base" src="Hangman Base.png" alt="Base" height="50%">
+      </div>
+
+      <div id="grave">
+          <img src="grave.png" alt="headstone" height="150%">
+          <div id="graveyard"></div>
+          <!--<div id="test">Text that I want to go down goes here</div>-->
+      </div>
+
+      <div id="winLose"></div>
+
+      <div id="answer"></div> <!--Move to display on word after the game finishes?-->
+
+
+      <div class="test" id="word"></div>
+
+    </div>
+    <script src="Hangman.js">
+    </script>
+  </body>
+</html>
