@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./Hangman.css";
-import { randomWord } from "./Words.js";
 
 import grave from "./images/grave.png"
 import base from "./images/Hangman Base.png"
@@ -24,7 +23,7 @@ class Hangman extends Component {
       lives: 6,
       guess: "",
       images: [legR, legL, armR, armL, body, head, base],
-      word: "hangman",
+      word: "HANGMAN",
       guessed: new Set()
     };
     this.userGuess = this.userGuess.bind(this)  // creates a copy of functions with new context so it works as expected
