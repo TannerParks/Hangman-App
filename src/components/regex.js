@@ -1,0 +1,1 @@
+export const validGuess = new RegExp("[A-Z]")
