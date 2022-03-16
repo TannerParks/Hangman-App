@@ -12,20 +12,15 @@ import legL from "./images/Left Leg.png"
 import legR from "./images/Right Leg.png"
 
 
-let textInput = React.createRef();
-
 class Hangman extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      //graveyardList: [],
-      users: [{Bob: 45}, {Joe: 38}],
-      lives: 6,
+      lives: 6, // 6 lives for 6 body parts (two legs, two arms, head, and body)
       guess: "",
-      images: [legR, legL, armR, armL, body, head, base],
-      //randomWord: pickWord(),
-      word: pickWord(),
+      images: [legR, legL, armR, armL, body, head, base], // The body parts
+      word: pickWord(), // Word chosen from list of 10,000 words
       graveyardSet: new Set()  // Sets can't have two of the same items so it's good for storing guesses
     };
     this.userGuess = this.userGuess.bind(this)  // creates a copy of functions with new context so it works as expected
@@ -34,27 +29,25 @@ class Hangman extends Component {
 
 
   refreshePage() {
-    window.location.reload(false);
+    window.location.reload(false);  // resets the page
   }
 
   lifeCount() {
-    this.setState({ lives: this.state.lives - 1});
+    this.setState({ lives: this.state.lives - 1});  // counts down from 6
     if (this.state.lives === 1) {
       alert("You lost!")
     }
   }
 
-  revealAnswer() {
+  revealAnswer() {  // If you get the word wrong this will show you the answer
     if (this.state.lives === 0) {
       return this.state.word;
     }
   }
 
   userGuess = (e) => {
-    //let userInput = textInput.current.value;
     let userInput = e.target.value;
     let letter = userInput.toUpperCase();
-    //let graveyardList = this.state.graveyardList;
     let graveyardSet = this.state.graveyardSet;
     let word = this.state.word;
 
@@ -70,21 +63,21 @@ class Hangman extends Component {
       alert("You've already used that letter");
     }
     else {
-      //this.setState({ graveyardList: graveyardList.concat(letter)});
-      this.setState({graveyardSet: graveyardSet.add(letter)});             // !!!!!!!$)*(@!&$@!*)^!@$)^
+      this.setState({graveyardSet: graveyardSet.add(letter)});
 
-      if (!word.toUpperCase().split("").includes(letter)) {
+      if (!word.split("").includes(letter)) { // Lose a life if the letter isn't in the answer
         this.lifeCount();
       }
     }
   }
 
   letters() {
+    // Shows the dashes for each letter. I used somebody else's code for this part since it wouldn't work for me
     return this.state.word.split("").map(letter=> (this.state.graveyardSet.has(letter) ? letter : " _ "));
-
   }
 
   render() {
+    // The HTML set up is below here with all the values
     return (
       <body>
 
@@ -96,13 +89,9 @@ class Hangman extends Component {
         <div id="mainContent">
 
           <div id="userGuess">
-{/* 
-            Enter a letter: <input ref={textInput} type="text" />
-*/}
+
             Enter a letter: <input value={this.state.guess} onChange={this.userGuess}/>
-{/*
-            <button onClick={this.userGuess}>Click Here</button>        
-*/}
+
           </div>
 
           <div id="board">
@@ -112,18 +101,9 @@ class Hangman extends Component {
           </div>
           </div>
 
-{/* 
-          <div id="word">
-            <h1>
-              {this.letters()}
-            </h1>
-          </div>
-*/}
           <div id="graveyard">
             <img id="grave" src={grave}></img>
-{/*
-            <div id="used">{this.state.graveyardList}</div>
-*/}
+
             <div id="used">{this.state.graveyardSet}</div>
           </div>
 
