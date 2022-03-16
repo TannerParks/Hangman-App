@@ -1,0 +1,48 @@
+body {
+    background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/34/70/G2oHgc.jpg"); 
+
+}
+
+#mainContent {
+    position: fixed;
+    left: 25%;
+    width: 1670px;
+    height: 1000px;
+}
+
+#info {
+    position: fixed;
+    left: 2%;
+    top: 4%;
+}
+
+#userGuess {
+    margin-top: 50px;
+}
+
+#board {
+    position: fixed;
+    left: 2%;
+    top: 20%;
+}
+
+#graveyard {
+    position: relative;
+    top: 50%;
+    left: 35%;
+}
+
+#used {
+    position: relative;
+    transform: translate(58%, -160%);
+    height: 150px;
+    width: 160px;
+    /*background: yellow;*/
+    opacity: 1;
+    word-wrap: break-word;
+    font-size: 26px;
+}
+
+#test {
+    background-color: yellow;
+}
