@@ -1,3 +1,2 @@
 # Web-Dev-Final
-
-Most of my code is in the src/components/ folder. I wanted to use a word api to get the words for the game but didn't have enough time so I just found a file of 10,000 words and turned it into a list myself. I know this isn't an art class but I spent a quarter of my time on making the drawings so it looked like the game was being played on a whiteboard and I'm very pleased with how they look. It's surprising how hard it is to make something your drawing by hand look hand drawn.
+Simple hangman game that chooses a word out of a list of 10,000. Guesses are checked to be letters and popups are thrown if they aren't. The masterfully drawn hangman images are all drawn by me and the theme of the game is to look like it's being played on a whiteboard
